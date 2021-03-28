@@ -1,4 +1,5 @@
 
+
 def getparams(id, valuelist):
     try:
           params = [id]
@@ -10,7 +11,6 @@ def getparams(id, valuelist):
         pass
 
     return params
-
 
 def getinsertstring(valuelist):
     try:
@@ -81,3 +81,18 @@ def getinsertstring(valuelist):
         pass
 
     return insert_string
+
+def getONSinsertstring(year, week_number, week_ended, uk, england, wales, scotland, ni):
+
+  insert_string = "INSERT INTO `Covid-19`.`ONS_Weeklies`" \
+                  "(`year`, " \
+                  "`week_number`, " \
+                  "`week_ended`, " \
+                  "`uk`, " \
+                  "`england`, " \
+                  "`wales`, " \
+                  "`scotland`, " \
+                  "`northern_ireland`) " \
+                  " VALUES ({}, {}, \"{}\", {}, {}, {}, {}, {});".format(year, week_number, week_ended, uk, england, wales, scotland, ni)
+
+  return insert_string
