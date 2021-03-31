@@ -31,7 +31,8 @@ def convertdate(date_string):
 def pivot():
     read_file()
     conn = db.getconnection()
+    current_year = datetime.strptime(week_ended[1], '%d-%b-%y').year
     for i in range(1, len(week_number)):
-        insert_sql = insertstring.getONSinsertstring(put the year here, week_number[i], convertdate(week_ended[i]), uk_deaths[i], england_deaths[i], wales_deaths[i], scotland_deaths[i], ni_deaths[i])
+        insert_sql = insertstring.getONSinsertstring(current_year, week_number[i], convertdate(week_ended[i]), uk_deaths[i], england_deaths[i], wales_deaths[i], scotland_deaths[i], ni_deaths[i])
         db.insertONSrow(conn, insert_sql)
         pass
